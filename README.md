@@ -5,6 +5,7 @@ AR 실행결과와 주요 코드입니다. 각 헤더에 링크가 걸려있습�
 <br><br>
 
 ## [Generate Markers](https://github.com/swywssaid/robot-vision/tree/main/augmented-reality/GENERATE_MARKERS)
+aruco 라이브러리를 이용하여 ArUco Marker를 생성합니다.
 ### [Code](https://github.com/swywssaid/robot-vision/blob/main/augmented-reality/GENERATE_MARKERS/main.py#L10)
 ```python
 marker_image = aruco.drawMarker(marker_dict, id, MARKER_SIZE)
@@ -12,6 +13,7 @@ marker_image = aruco.drawMarker(marker_dict, id, MARKER_SIZE)
 <br><br>
 
 ## [Camera Calibration](https://github.com/swywssaid/robot-vision/tree/main/augmented-reality/CAMERA_CALIBRATION)
+Camera Calibration를 진행하는 코드입니다. 체커보드를 기준으로 수행하며 체커보드의 종류와 칸의 크기가 필요합니다. 
 ### [Code](https://github.com/swywssaid/robot-vision/blob/main/augmented-reality/CAMERA_CALIBRATION/camera_calibration.py#L42)
 ```python
 ret, corners = cv.findChessboardCorners(image, CHESS_BOARD_DIM, None)
@@ -25,6 +27,7 @@ if ret == True:
 <br><br>
 
 ## [AR Distance](https://github.com/swywssaid/robot-vision/tree/main/augmented-reality/AR_DISTANCE)
+x,y,z 좌표축을 그리고 마커와 카메라 간의 거리를 측정합니다.
 ### Result
 <img src="augmented-reality/AR_DISTANCE/AR_DISTANCE_RESULT.gif" width="400" height="350">
 
@@ -43,6 +46,7 @@ point = cv2.drawFrameAxes(frame, cam_mat, dist_coef, rVec[i], tVec[i], 4, 4)
 <br><br>
 
 ## [AR Basic](https://github.com/swywssaid/robot-vision/tree/main/augmented-reality/AR_BASIC)
+각 마커에 매칭되는 이미지로 마커를 매핑합니다.
 ### Result
 <img src="augmented-reality/AR_BASIC/AR_BASIC_RESULT.gif" width="400" height="350">
 
@@ -65,6 +69,7 @@ def image_augmentation(frame, src_image, dst_points):
 <br><br>
 
 ## [AR 3D](https://github.com/swywssaid/robot-vision/tree/main/augmented-reality/AR_3D)
+마커를 기준으로 정육면체를 그립니다.
 ### Result
 <img src="augmented-reality/AR_3D/AR_3D_RESULT.gif" width="400" height="350">
 
