@@ -44,6 +44,11 @@ param_markers = aruco.DetectorParameters_create()
 images_list = read_images("./augmented-reality/AR_BASIC/images")
 
 cap = cv2.VideoCapture("./augmented-reality/AR_BASIC/images/marker.mp4")
+w = round(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+h = round(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+fps = cap.get(cv2.CAP_PROP_FPS)
+fourcc = cv2.VideoWriter_fourcc(*'DIVX')
+out = cv2.VideoWriter('output.avi', fourcc, fps, (w, h))
 
 while True:
     ret, frame = cap.read()
@@ -93,9 +98,11 @@ while True:
             
     frame = cv2.flip(frame, 1)
     frame = cv2.flip(frame, 0)
+    out.write(frame)
     cv2.imshow("frame", frame)
     key = cv2.waitKey(1)
     if key == ord("q"):
         break
 cap.release()
+out.release()
 cv2.destroyAllWindows()
