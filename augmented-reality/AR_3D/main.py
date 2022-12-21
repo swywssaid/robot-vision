@@ -3,7 +3,7 @@ from cv2 import aruco
 import numpy as np
 import os
 
-calib_data_path = "./calib_data/MultiMatrix.npz"
+calib_data_path = "./augmented-reality/calib_data/MultiMatrix.npz"
 
 calib_data = np.load(calib_data_path)
 print(calib_data.files)
@@ -41,9 +41,9 @@ marker_dict = aruco.Dictionary_get(aruco.DICT_4X4_50)
 
 param_markers = aruco.DetectorParameters_create()
 
-images_list = read_images("AR_BASIC/images")
+images_list = read_images("./augmented-reality/AR_BASIC/images")
 
-cap = cv2.VideoCapture("./AR_BASIC/images/marker.mp4")
+cap = cv2.VideoCapture("./augmented-reality/AR_BASIC/images/marker.mp4")
 
 while True:
     ret, frame = cap.read()
